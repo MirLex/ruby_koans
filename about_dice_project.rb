@@ -7,11 +7,7 @@ class DiceSet
   attr_reader :preValues
   def roll(amount)
     @values = amount.times.map{rand(1..6)}
-    if @values != @preValues
-      @preValues = @values
-    else
-      self.roll(amount)
-    end
+    @values != @preValues ? @preValues = @values : self.roll(amount)
   end
 end
 
